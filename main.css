@@ -1,0 +1,321 @@
+/* 1. THEME VARIABLES */
+:root {
+    --bg-color: #f4f7f6;
+    --card-bg: #ffffff;
+    --text-primary: #2c3e50;
+    --text-secondary: #5a6a7a;
+    --border-color: #e0e6ed;
+    --accent-color: #3498db;
+    --edit-color: #f39c12; /* Added a distinct orange for editing */
+    --danger-color: #ff7675;
+    --input-bg: #ffffff;
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* 2. DARK MODE OVERRIDES */
+[data-theme="dark"] {
+    --bg-color: #1a1a1b;
+    --card-bg: #2d2d2e;
+    --text-primary: #e4e6eb;
+    --text-secondary: #b0b3b8;
+    --border-color: #404041;
+    --accent-color: #5dade2;
+    --edit-color: #f1c40f;
+    --input-bg: #3a3b3c;
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* 3. BASE STYLES */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    transition: background-color 0.3s ease;
+}
+
+.container {
+    width: 100%;
+    max-width: 750px;
+    padding: 40px 20px;
+}
+
+/* 4. HEADER & TOGGLE */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+h1 {
+    margin: 0;
+    font-size: 2rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+}
+
+.theme-btn {
+    background: var(--card-bg);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+    padding: 10px 18px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 600;
+    box-shadow: var(--shadow);
+    transition: all 0.2s;
+}
+
+.theme-btn:hover {
+    transform: scale(1.05);
+}
+
+/* 5. EDITOR / FORM */
+.editor {
+    background: var(--card-bg);
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+    margin-bottom: 30px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+input, textarea, select {
+    background: var(--input-bg);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 1rem;
+    width: 100%;
+}
+
+textarea {
+    height: 120px;
+    resize: none;
+}
+
+.form-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+button[type="submit"] {
+    background: var(--accent-color);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+button[type="submit"]:hover {
+    opacity: 0.9;
+}
+
+/* 6. VIBE FEED (CARDS) */
+.feed {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.post-card {
+    background: var(--card-bg);
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+    border-left: 10px solid var(--border-color);
+    transition: transform 0.2s;
+}
+
+.post-card:hover {
+    transform: translateX(5px);
+}
+
+/* Mood Borders */
+.post-card.chill { border-left-color: #88d498; }
+.post-card.energetic { border-left-color: #ffd700; }
+.post-card.thoughtful { border-left-color: #a29bfe; }
+
+.post-card h2 {
+    margin: 0 0 15px 0;
+    text-transform: capitalize;
+}
+
+.card-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px; /* Added gap to prevent squishing */
+}
+
+.action-group {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.read-more {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.edit-btn {
+    color: var(--edit-color);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 6px 10px;
+    border-radius: 8px;
+    border: 1px solid transparent;
+    transition: all 0.2s;
+}
+
+.edit-btn:hover {
+    border-color: var(--edit-color);
+    background: rgba(243, 156, 18, 0.1);
+}
+
+.delete-btn {
+    background: transparent;
+    color: var(--danger-color);
+    border: 1px solid var(--danger-color);
+    padding: 6px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    transition: all 0.2s;
+}
+
+.delete-btn:hover {
+    background: var(--danger-color);
+    color: white;
+}
+
+/* 7. UTILITIES */
+hr {
+    border: 0;
+    border-top: 1px solid var(--border-color);
+    margin: 40px 0;
+}
+
+.post-date {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+}
+
+.search-container {
+    margin-bottom: 25px;
+}
+
+#vibeSearch {
+    width: 100%;
+    padding: 12px 20px;
+    border-radius: 25px;
+    border: 1px solid var(--border-color);
+    background-color: var(--card-bg);
+    color: var(--text-primary);
+    font-size: 1rem;
+    box-shadow: var(--shadow);
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+#vibeSearch:focus {
+    border-color: var(--accent-color);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.word-badge {
+    font-size: 0.75rem;
+    background: var(--border-color);
+    color: var(--text-secondary);
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+/* 8. TOAST NOTIFICATION */
+#toast {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--text-primary);
+    color: var(--bg-color);
+    padding: 12px 24px;
+    border-radius: 30px;
+    font-weight: 600;
+    box-shadow: var(--shadow);
+    z-index: 1000;
+    transition: opacity 0.4s, transform 0.4s;
+    pointer-events: none;
+}
+
+.toast-hidden {
+    opacity: 0;
+    transform: translate(-50%, 20px) !important;
+}
+
+.toast-visible {
+    opacity: 1;
+    transform: translate(-50%, 0) !important;
+}
+/* 9. IMAGE STYLING */
+.post-content img {
+    max-width: 100%;       /* Prevents image from being wider than the text */
+    height: auto;          /* Maintains aspect ratio */
+    display: block;        /* Centers the image as a block element */
+    margin: 20px auto;     /* Adds space above/below and centers horizontally */
+    border-radius: 12px;   /* Matches your card's border radius */
+    box-shadow: var(--shadow); /* Adds a subtle depth */
+}
+
+.image-uploader {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#uploadStatus {
+    font-size: 0.85rem;
+    color: var(--accent-color);
+    font-weight: 600;
+}

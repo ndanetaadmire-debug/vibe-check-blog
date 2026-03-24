@@ -1,0 +1,26 @@
+{
+  "name": "vibe-check-blog",
+  "version": "1.0.0",
+  "description": "A custom blog engine built to practice SSR with Node.js/Express. Coding is more fun this way!",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ndanetaadmire-debug/vibe-check-blog.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/ndanetaadmire-debug/vibe-check-blog/issues"
+  },
+  "homepage": "https://github.com/ndanetaadmire-debug/vibe-check-blog#readme",
+  "dependencies": {
+    "ejs": "^5.0.1",
+    "express": "^5.2.1",
+    "multer": "^2.1.1"
+  }
+}

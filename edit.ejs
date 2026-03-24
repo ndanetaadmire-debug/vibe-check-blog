@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/styles/main.css">
+    <title>Edit: <%= title %></title>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Edit Vibe: <%= title %></h1>
+            <a href="/" class="back-link">← Cancel</a>
+        </header>
+
+        <section class="editor">
+            <form action="/update/<%= slug %>" method="POST">
+                <textarea name="content" required><%= content %></textarea>
+                
+                <div class="form-footer">
+                    <select name="mood">
+                        <option value="chill" <%= mood === 'chill' ? 'selected' : '' %>>🍃 Chill</option>
+                        <option value="energetic" <%= mood === 'energetic' ? 'selected' : '' %>>⚡ Energetic</option>
+                        <option value="thoughtful" <%= mood === 'thoughtful' ? 'selected' : '' %>>💎 Thoughtful</option>
+                    </select>
+                    <button type="submit">Update Vibe</button>
+                </div>
+            </form>
+        </section>
+    </div>
+</body>
+</html>
